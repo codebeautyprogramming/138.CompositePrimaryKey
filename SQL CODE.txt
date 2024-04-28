@@ -1,0 +1,19 @@
+--make sure to use appropriate DataBase
+
+CREATE TABLE RecipeIngredients (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    RecipeId INT NOT NULL,
+    IngredientId INT NOT NULL,
+    Amount DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (RecipeId) REFERENCES Recipes(Id),
+    FOREIGN KEY (IngredientId) REFERENCES Ingredients(Id)
+)
+
+insert into RecipeIngredients (RecipeId, IngredientId, Amount)
+values (9,25, 200),
+(9,37, 100),
+(9,39, 200),
+(9,11, 50)
+--please use Id-s that are valid in your DataBase
+
+select * from RecipeIngredients where IngredientId=25
